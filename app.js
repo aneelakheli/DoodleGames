@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let rightTimerId;
   let score = 0;
 
+  function createDoodler() {
+    grid.appendChild(doodler);
+    doodler.classList.add("doodler");
+    doodlerLeftSpace = platforms[0].left;
+    doodler.style.left = doodlerLeftSpace + "px";
+    doodler.style.bottom = doodlerBottomSpace + "px";
+  }
+
   class Platform {
     constructor(newPlatBottom) {
       this.bottom = newPlatBottom;
@@ -37,15 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       platforms.push(newPlatform);
     }
   }
-
-  function createDoodler() {
-    grid.appendChild(doodler);
-    doodler.classList.add("doodler");
-    doodlerLeftSpace = platforms[0].left;
-    doodler.style.left = doodlerLeftSpace + "px";
-    doodler.style.bottom = doodlerBottomSpace + "px";
-  }
-
   function movePlatforms() {
     if (doodlerBottomSpace > 200) {
       platforms.array.forEach((platform) => {
